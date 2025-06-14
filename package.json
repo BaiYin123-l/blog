@@ -1,0 +1,23 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'hi'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BaiYin123-l/blog.git"
+  },
+  "author": "baiyin123-l",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BaiYin123-l/blog/issues"
+  },
+  "homepage": "https://github.com/BaiYin123-l/blog#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.6",
+    "bootstrap-icons": "^1.13.1"
+  }
+}

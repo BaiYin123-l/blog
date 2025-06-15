@@ -1,16 +1,19 @@
 from django.shortcuts import render
 import json
+from blog.update_github_repo import get_github_data
 
 # Create your views here.
 def index(request):
-    return render(request, "index.html")
+    # 获取 GitHub 数据
+    github_data = get_github_data()
+    return render(request, "index.html", {'github_data': github_data})
 
 def blogs(request):
     
     return render(request, "blogs.html")
 
 def about(request):
-    with open(r"static\python-depends.json",encoding='utf-16 le') as f:
+    with open(r"static\python-depends.json",encoding='utf-8') as f:
         content = f.read()
         # 检查并移除 BOM
         if content.startswith('\ufeff'):

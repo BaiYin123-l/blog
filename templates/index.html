@@ -3,9 +3,77 @@
 {% load static %}
 
 {% block head %}
-
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}
 
 {% block main %}
+<div class="container main-box">
+    <div class="row">
+        <!-- 侧边栏 -->
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#profile" class="list-group-item list-group-item-action active" id="profile-link">Profile</a>
+                <a href="#repositories" class="list-group-item list-group-item-action" id="repositories-link">Repositories</a>
+            </div>
+        </div>
 
+        <!-- 主内容区 -->
+        <div class="col-md-9">
+            <!-- 用户信息部分 -->
+            <div class="card" id="profile-section">
+                <div class="card-header">
+                    <h5 class="mb-0">User Profile</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <img id="avatar" src="{{ github_data.user.avatar_url }}" alt="Profile Avatar" class="rounded-circle" width="200" height="200">
+                        <h2 id="name" class="mt-3">{{ github_data.user.name }}</h2>
+                        <p id="bio" class="text-muted">{{ github_data.user.bio }}</p>
+                        <div class="d-flex justify-content-center gap-3 mt-3">
+                            <span id="repos" class="badge bg-primary">Repositories: {{ github_data.user.public_repos }}</span>
+                            <span id="followers" class="badge bg-primary">Followers: {{ github_data.user.followers }}</span>
+                            <span id="following" class="badge bg-primary">Following: {{ github_data.user.following }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 仓库列表部分 -->
+            <div class="card mt-4" id="repositories-section">
+                <div class="card-header">
+                    <h5 class="mb-0">Repositories</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush" id="repos-list">
+                        {% for repo in github_data.repos %}
+                        <li class="list-group-item repo-item">
+                            <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+                            <p class="text-muted">{{ repo.description }}</p>
+                            <small class="text-muted">Updated: {{ repo.updated_at }}</small>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 监听锚点链接点击事件
+    document.getElementById('profile-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('profile-link').classList.add('active');
+        document.getElementById('repositories-link').classList.remove('active');
+        document.getElementById('profile-section').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.getElementById('repositories-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('repositories-link').classList.add('active');
+        document.getElementById('profile-link').classList.remove('active');
+        document.getElementById('repositories-section').scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
 {% endblock %}

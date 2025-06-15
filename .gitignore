@@ -193,5 +193,11 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# node_modules node.js dependencies
 node_modules/
 
+# ca certificates
+*.crt
+
+# http headers
+headers.json

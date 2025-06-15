@@ -3,9 +3,58 @@
 {% load static %}
 
 {% block head %}
-
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
 {% endblock %}
 
 {% block main %}
-
+<div class="container mt-4">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th colspan="5">python-depends</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-secondary">
+                <th>Author</th>
+                <th>License</th>
+                <th>Name</th>
+                <th>URL</th>
+            </tr>
+            {% for line in t1 %}
+            <tr>
+                <th>{{line.Author}}</th>
+                <th>{{line.License}}</th>
+                <th>{{line.Name}}@{{line.Version}}</th>
+                <th><a href="{{line.URL}}" target="_blank">{{line.URL}}</a></th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="container mt-4">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th colspan="5">node-depends</th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr class="table-secondary">
+                <th>Author</th>
+                <th>License</th>
+                <th>Name</th>
+                <th>URL</th>
+            </tr>
+            {% for key, values in t2.items %}
+            <tr>
+                <td>{{ values.publisher }} &lt;{{ values.email }}&gt;</td>
+                <td>{{ values.licenses }}</td>
+                <td>{{ key }}</td>
+                <td><a href="{{ values.repository }}" target="_blank">{{ values.repository }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hans">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,29 +10,34 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"> 
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <img src="{% static 'favicon.ico' %}" alt="Logo" class="bi me-2" width="32" height="32" style="border-radius: 50%;">
-             <span class="fs-4">白影暮行博客</span> 
-        </a>
-        <ul class="nav nav-pills">
-             <li class="nav-item"><a href="." class="nav-link">首页</a></li> 
-             <li class="nav-item"><a href="./blogs" class="nav-link">博客</a></li>
-             <li class="nav-item"><a href="./about" class="nav-link">关于</a></li> 
-        </ul> 
-    </header>
-    {% block main %}{% endblock %}
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"> 
-        <div class="col-md-4 d-flex align-items-center"> 
-            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"> 
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"> 
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
                 <img src="{% static 'favicon.ico' %}" alt="Logo" class="bi me-2" width="32" height="32" style="border-radius: 50%;">
-            </a> 
-            <span class="mb-3 mb-md-0 text-body-secondary">© 2025 白影</span> 
-        </div> 
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-body-secondary" href="https://github.com/BaiYin123-l/blog" aria-label="github"><svg class="bi" width="24" height="24" aria-hidden="true"><use xlink:href="{% static 'bootstrap-icons/bootstrap-icons.svg' %}#github"></use></svg></a></li>
-        </ul>
-    </footer>
+                <span class="fs-4">白影暮行博客</span> 
+            </a>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="." class="nav-link">首页</a></li> 
+                <li class="nav-item"><a href="./blogs" class="nav-link">博客</a></li>
+                <li class="nav-item"><a href="./about" class="nav-link">关于</a></li> 
+                <li class="nav-item"><a class="btn btn-sm btn-outline-secondary nav-link" href="./admin">管理登录</a></li>
+            </ul> 
+        </header>
+    </div>
+    {% block main %}{% endblock %}
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"> 
+            <div class="col-md-4 d-flex align-items-center"> 
+                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"> 
+                    <img src="{% static 'favicon.ico' %}" alt="Logo" class="bi me-2" width="32" height="32" style="border-radius: 50%;">
+                </a> 
+                <span class="mb-3 mb-md-0 text-body-secondary">© 2025 白影</span> 
+            </div> 
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/BaiYin123-l/blog" aria-label="github" target="_blank"><svg class="bi" width="24" height="24" aria-hidden="true"><use xlink:href="{% static 'bootstrap-icons/bootstrap-icons.svg' %}#github"></use></svg></a></li>
+            </ul>
+        </footer>
+    </div>
     <script src="{% static 'js/footer.js' %}"></script>
 </body>
 </html>

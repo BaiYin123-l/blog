@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import json
 from blog.update_github_repo import get_github_data
+from blog.models import Blog
 
 # Create your views here.
 def index(request):
@@ -9,8 +10,12 @@ def index(request):
     return render(request, "index.html", {'github_data': github_data})
 
 def blogs(request):
-    
-    return render(request, "blogs.html")
+    blogs = Blog.objects.all()
+    return render(request, "blogs.html", {'blogs':blogs})
+
+def blog(request, blog_id):
+    blog = Blog.objects.get(id=blog_id)
+    return render(request, "blog.html", {'blog': blog})
 
 def about(request):
     with open(r"static\python-depends.json",encoding='utf-8') as f:

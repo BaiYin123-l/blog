@@ -17,10 +17,10 @@
                 <span class="fs-4">白影暮行博客</span> 
             </a>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="." class="nav-link">首页</a></li> 
-                <li class="nav-item"><a href="./blogs" class="nav-link">博客</a></li>
-                <li class="nav-item"><a href="./about" class="nav-link">关于</a></li> 
-                <li class="nav-item"><a class="btn btn-sm btn-outline-secondary nav-link" href="./admin">管理登录</a></li>
+                <li class="nav-item"><a href="{% url 'index' %}" class="nav-link">首页</a></li> 
+                <li class="nav-item"><a href="{% url 'blogs' %}" class="nav-link">博客</a></li>
+                <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">关于</a></li> 
+                <li class="nav-item"><a class="btn btn-sm btn-outline-secondary nav-link" href="{% url 'index' %}admin">管理登录</a></li>
             </ul> 
         </header>
     </div>

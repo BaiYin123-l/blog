@@ -241,6 +241,13 @@
     "path": "D:\\dev\\blog\\node_modules\\license-checker",
     "licenseFile": "D:\\dev\\blog\\node_modules\\license-checker\\LICENSE"
   },
+  "marked@15.0.12": {
+    "licenses": "MIT",
+    "repository": "https://github.com/markedjs/marked",
+    "publisher": "Christopher Jeffrey",
+    "path": "D:\\dev\\blog\\node_modules\\marked",
+    "licenseFile": "D:\\dev\\blog\\node_modules\\marked\\LICENSE.md"
+  },
   "minimatch@3.1.2": {
     "licenses": "ISC",
     "repository": "https://github.com/isaacs/minimatch",

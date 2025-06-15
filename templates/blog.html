@@ -3,9 +3,66 @@
 {% load static %}
 
 {% block head %}
-
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <script src="{% static 'marked/marked.min.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contentElement = document.getElementById('content');
+            if (contentElement) {
+                const renderer = new marked.Renderer();
+                renderer.html = function(html) {
+                    return `<div class="marked-content">${html}</div>`;
+                };
+                const markdownContent = contentElement.getAttribute('data-markdown');
+                if (markdownContent) {
+                    contentElement.innerHTML = marked.parse(markdownContent, { renderer: renderer });
+                }
+            }
+        });
+    </script>
 {% endblock %}
 
 {% block main %}
-
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <h2 class="mb-4">{{ blog.title }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="mb-4">
+                        <strong>内容：</strong>
+                        {% if blog.file_type == 'md' %}
+                            <div id="content" data-markdown="{{ blog.content }}"></div>
+                        {% elif blog.file_type == 'html' %}
+                            <div class="card-text">{{ blog.content|safe }}</div>
+                        {% elif blog.file_type == 'txt' %}
+                            <pre class="card-text">{{ blog.content }}</pre>
+                        {% else %}
+                            <p class="card-text">{{ blog.content }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <strong>标签：</strong>{{ blog.tags }}
+                    </div>
+                    <div class="mb-3 text-muted">
+                        <strong>文件类型：</strong>{{ blog.file_type }}
+                    </div>
+                    <div class="mb-3 text-muted">
+                        <strong>创建时间：</strong>{{ blog.created_at }}
+                    </div>
+                    <div class="mb-3 text-muted">
+                        <strong>更新时间：</strong>{{ blog.updated_at }}
+                    </div>
+                    <div class="mt-4">
+                        <a href="{% url 'blogs' %}" class="btn btn-secondary">返回博客列表</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

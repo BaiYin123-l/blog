@@ -1,9 +1,10 @@
 ---
-名称：Bug 报告
-关于：创建一个报告以帮助我们改进
-标题：
-标签：
-指派给：
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
+
 ---
 
 **描述漏洞**

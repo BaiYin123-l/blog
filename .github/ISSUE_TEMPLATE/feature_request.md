@@ -1,9 +1,9 @@
 ---
-名称：功能请求
-关于：为该项目提出一个想法
-标题：
-标签：
-指派给：
+name: Feature request
+about: Suggest an idea for this project
+title: ''
+labels: ''
+assignees: ''
 
 ---
 

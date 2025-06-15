@@ -120,7 +120,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-    BASE_DIR / 'node_modules',
+    BASE_DIR / 'node_modules' / 'bootstrap' / 'dist',
+    BASE_DIR / 'node_modules' / 'bootstrap-icons',
+    BASE_DIR / 'node_modules' / 'marked',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 

@@ -201,3 +201,5 @@ node_modules/
 
 # http headers
 headers.json
+
+staticfiles/
